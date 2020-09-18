@@ -9,51 +9,51 @@ export default class CreateHotels1597472324758 implements MigrationInterface {
           {
             name: 'id',
             type: 'int',
-            isPrimary: true
-		  },
-		  {
+            isPrimary: true,
+          },
+          {
             name: 'user_id',
             type: 'int',
-		  },
+          },
           {
             name: 'name',
             type: 'varchar',
-		  },
-		  {
+          },
+          {
             name: 'stars',
-            type: 'int'
+            type: 'int',
           },
           {
             name: 'description',
-            type: 'text'
-		  },
+            type: 'text',
+          },
           {
             name: 'address',
             type: 'varchar',
-		  },
-		  {
+          },
+          {
             name: 'city',
-            type: 'varchar'
-		  },
-		  {
+            type: 'varchar',
+          },
+          {
             name: 'state',
-            type: 'varchar'
-		  },
-		  {
+            type: 'varchar',
+          },
+          {
             name: 'zipcode',
-            type: 'varchar'
-		  },
-		  {
+            type: 'varchar',
+          },
+          {
             name: 'phone',
-            type: 'varchar'
-		  },
-		  {
+            type: 'varchar',
+          },
+          {
             name: 'coffe_free',
-            type: 'bit'
-		  },
-		  {
+            type: 'bit',
+          },
+          {
             name: 'image_url',
-            type: 'varchar'
+            type: 'varchar',
           },
           {
             name: 'created_at',

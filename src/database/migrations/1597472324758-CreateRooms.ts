@@ -9,36 +9,36 @@ export default class CreateRooms1597472324758 implements MigrationInterface {
           {
             name: 'id',
             type: 'int',
-            isPrimary: true
-		  },
-		  {
+            isPrimary: true,
+          },
+          {
             name: 'hotel_id',
             type: 'int',
-		  },
+          },
           {
             name: 'type',
             type: 'varchar',
-		  },
-		  {
+          },
+          {
             name: 'number',
-            type: 'int'
+            type: 'int',
           },
           {
             name: 'description',
-            type: 'text'
-		  },
+            type: 'text',
+          },
           {
             name: 'max_size',
             type: 'int',
-		  },
-		  {
+          },
+          {
             name: 'enabled',
             type: 'bit',
-		  },
-		  {
+          },
+          {
             name: 'price',
-            type: 'decimal'
-		  },
+            type: 'decimal',
+          },
           {
             name: 'created_at',
             type: 'timestamp',

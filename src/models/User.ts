@@ -9,7 +9,6 @@ import {
 
 @Entity('users')
 class User {
-
   @PrimaryColumn()
   id: number;
 

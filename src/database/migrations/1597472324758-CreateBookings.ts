@@ -9,31 +9,31 @@ export default class CreateBookings1597472324758 implements MigrationInterface {
           {
             name: 'id',
             type: 'int',
-            isPrimary: true
-		  },
-		  {
+            isPrimary: true,
+          },
+          {
             name: 'hotel_id',
             type: 'int',
-		  },
-		  {
+          },
+          {
             name: 'user_id',
             type: 'int',
-		  },
-		  {
+          },
+          {
             name: 'room_id',
             type: 'int',
-		  },
+          },
           {
             name: 'status',
             type: 'bit',
-		  },
-		  {
+          },
+          {
             name: 'check_in',
-            type: 'datetime'
-		  },
-		  {
+            type: 'datetime',
+          },
+          {
             name: 'check_out',
-            type: 'datetime'
+            type: 'datetime',
           },
           {
             name: 'created_at',
