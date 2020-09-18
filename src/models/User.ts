@@ -11,7 +11,7 @@ import {
 class User {
 
   @PrimaryColumn()
-  id: string;
+  id: number;
 
   @Column('varchar')
   name: string;
@@ -32,10 +32,10 @@ class User {
   phone: string;
 
   @Column('bit')
-  admin: string;
+  admin: boolean;
 
   @Column('bit')
-  enable: string;
+  enabled: boolean;
 
   @CreateDateColumn()
   created_at: Date;

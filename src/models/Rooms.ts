@@ -7,44 +7,32 @@ import {
 	UpdateDateColumn,
   } from 'typeorm';
   
-  @Entity('hotels')
-  class Hotel {
+  @Entity('rooms')
+  class Rooms {
   
 	@PrimaryColumn()
 	id: number;
 
 	@Column('int')
-	user_id: number;
+	hotel_id: number;
   
 	@Column('varchar')
-	name: string;
+	type: string;
   
 	@Column('int')
-	stars: number;
+	number: number;
   
 	@Column('text')
 	description: string;
-  
-	@Column('varchar')
-	address: string;
-  
-	@Column('varchar')
-	city: string;
-  
-	@Column('varchar')
-	state: string;
 
 	@Column('int')
-	zipcode: number;
-
-	@Column('varchar')
-	phone: string;
+	max_size: number;
   
 	@Column('bit')
-	coffe_free: boolean;
+	enabled: boolean;
   
-	@Column('varchar')
-	image_url: boolean;
+	@Column('decimal')
+	price: number;
   
 	@CreateDateColumn()
 	created_at: Date;
@@ -53,5 +41,5 @@ import {
 	updated_at: Date;
   }
   
-  export default Hotel;
+  export default Rooms;
   
