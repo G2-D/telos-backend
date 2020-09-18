@@ -2,18 +2,22 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('users')
 class User {
-  @PrimaryGeneratedColumn('uuid')
+
+  @PrimaryColumn()
   id: string;
 
   @Column('varchar')
   name: string;
+
+  @Column('varchar')
+  lastname: string;
 
   @Column('varchar')
   email: string;
@@ -23,6 +27,15 @@ class User {
 
   @Column('varchar')
   avatar: string;
+
+  @Column('varchar')
+  phone: string;
+
+  @Column('bit')
+  admin: string;
+
+  @Column('bit')
+  enable: string;
 
   @CreateDateColumn()
   created_at: Date;
