@@ -1,48 +1,39 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateUsers1597472324758 implements MigrationInterface {
+export default class CreateBookings1597472324758 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'users',
+        name: 'bookings',
         columns: [
           {
             name: 'id',
             type: 'int',
             isPrimary: true
-          },
+		  },
+		  {
+            name: 'hotel_id',
+            type: 'int',
+		  },
+		  {
+            name: 'user_id',
+            type: 'int',
+		  },
+		  {
+            name: 'room_id',
+            type: 'int',
+		  },
           {
-            name: 'name',
-            type: 'varchar',
+            name: 'status',
+            type: 'bit',
 		  },
 		  {
-            name: 'lastname',
-            type: 'varchar'
-          },
-          {
-            name: 'email',
-            type: 'varchar',
-            isUnique: true,
-		  },
-          {
-            name: 'password',
-            type: 'varchar',
+            name: 'check_in',
+            type: 'datetime'
 		  },
 		  {
-            name: 'avatar',
-            type: 'varchar'
-		  },
-		  {
-            name: 'phone',
-            type: 'varchar'
-		  },
-		  {
-            name: 'admin',
-            type: 'bit'
-		  },
-		  {
-            name: 'enabled',
-            type: 'bit'
+            name: 'check_out',
+            type: 'datetime'
           },
           {
             name: 'created_at',
@@ -60,6 +51,6 @@ export default class CreateUsers1597472324758 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users');
+    await queryRunner.dropTable('bookings');
   }
 }
