@@ -36,8 +36,8 @@ class User {
   @Column('bit')
   admin: boolean;
 
-  @OneToMany(() => Hotel, hotel => hotel.user_id)
-  hotels: Hotel[];
+  @OneToMany(() => Hotel, hotel => hotel.admin)
+  hotels!: Hotel[];
 
   @Column('bit')
   enabled: boolean;
