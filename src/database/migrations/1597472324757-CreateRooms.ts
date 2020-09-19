@@ -8,12 +8,14 @@ export default class CreateRooms1597472324758 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'int',
+            type: 'uuid',
             isPrimary: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'hotel_id',
-            type: 'int',
+            type: 'uuid',
           },
           {
             name: 'type',
