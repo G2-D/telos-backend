@@ -7,6 +7,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
   OneToMany,
+  JoinColumn,
 } from 'typeorm';
 
 import User from './User';
@@ -20,8 +21,9 @@ class Hotel {
   @Column('uuid')
   user_id: string;
 
-  @ManyToOne(() => User, user => user.hotels)
-  admin!: User;
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  admin: User;
 
   @OneToMany(() => Room, room => room.hotel)
   rooms!: Room[];
