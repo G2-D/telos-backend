@@ -33,6 +33,7 @@ export default class CreateUsers1597472324758 implements MigrationInterface {
           {
             name: 'avatar',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'phone',
@@ -40,11 +41,13 @@ export default class CreateUsers1597472324758 implements MigrationInterface {
           },
           {
             name: 'admin',
-            type: 'bit',
+            type: 'boolean',
+            default: false,
           },
           {
             name: 'enabled',
-            type: 'bit',
+            type: 'boolean',
+            default: true,
           },
           {
             name: 'created_at',

@@ -33,13 +33,13 @@ class User {
   @Column('varchar')
   phone: string;
 
-  @Column('bit')
+  @Column('boolean')
   admin: boolean;
 
   @OneToMany(() => Hotel, hotel => hotel.admin)
   hotels!: Hotel[];
 
-  @Column('bit')
+  @Column('boolean')
   enabled: boolean;
 
   @CreateDateColumn()

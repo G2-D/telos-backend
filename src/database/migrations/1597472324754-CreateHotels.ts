@@ -51,11 +51,13 @@ export default class CreateHotels1597472324758 implements MigrationInterface {
           },
           {
             name: 'coffe_free',
-            type: 'bit',
+            type: 'boolean',
+            default: true,
           },
           {
             name: 'image_url',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',

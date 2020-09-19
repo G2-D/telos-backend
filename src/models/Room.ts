@@ -33,7 +33,7 @@ class Rooms {
   @Column('int')
   max_size: number;
 
-  @Column('bit')
+  @Column('boolean')
   enabled: boolean;
 
   @Column('decimal')

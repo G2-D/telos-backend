@@ -39,7 +39,7 @@ class Booking {
   @Column('uuid')
   room_id: string;
 
-  @Column('bit')
+  @Column('boolean')
   status: boolean;
 
   @Column('timestamp with time zone')

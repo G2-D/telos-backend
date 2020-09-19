@@ -27,7 +27,8 @@ export default class CreateBookings1597472324758 implements MigrationInterface {
           },
           {
             name: 'status',
-            type: 'bit',
+            type: 'boolean',
+            default: true,
           },
           {
             name: 'check_in',

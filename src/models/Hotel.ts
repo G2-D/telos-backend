@@ -50,7 +50,7 @@ class Hotel {
   @Column('varchar')
   phone: string;
 
-  @Column('bit')
+  @Column('boolean')
   coffe_free: boolean;
 
   @Column('varchar')

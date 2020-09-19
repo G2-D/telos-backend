@@ -35,7 +35,8 @@ export default class CreateRooms1597472324758 implements MigrationInterface {
           },
           {
             name: 'enabled',
-            type: 'bit',
+            type: 'boolean',
+            default: true,
           },
           {
             name: 'price',
