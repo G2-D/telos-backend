@@ -2,15 +2,18 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+
+import Hotel from './Hotel';
 
 @Entity('users')
 class User {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column('varchar')
   name: string;
@@ -32,6 +35,9 @@ class User {
 
   @Column('bit')
   admin: boolean;
+
+  @OneToMany(() => Hotel, hotel => hotel.user_id)
+  hotels: Hotel[];
 
   @Column('bit')
   enabled: boolean;

@@ -2,18 +2,18 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('hotels')
 class Hotel {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column('int')
-  user_id: number;
+  @Column('uuid')
+  user_id: string;
 
   @Column('varchar')
   name: string;

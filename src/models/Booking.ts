@@ -2,32 +2,32 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('bookings')
 class Booking {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column('int')
-  hotel_id: number;
+  @Column('uuid')
+  hotel_id: string;
 
-  @Column('int')
-  user_id: number;
+  @Column('uuid')
+  user_id: string;
 
-  @Column('int')
-  room_id: number;
+  @Column('uuid')
+  room_id: string;
 
   @Column('bit')
   status: boolean;
 
-  @Column('datetime')
+  @Column('timestamp with time zone')
   check_in: Date;
 
-  @Column('datetime')
+  @Column('timestamp with time zone')
   check_out: string;
 
   @CreateDateColumn()

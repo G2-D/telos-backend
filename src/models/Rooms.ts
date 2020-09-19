@@ -2,18 +2,26 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import Hotel from './Hotel';
 
 @Entity('rooms')
 class Rooms {
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Column('int')
-  hotel_id: number;
+  @ManyToOne(() => Hotel)
+  @JoinColumn({ name: 'hotel_id' })
+  hotel: Hotel;
+
+  @Column('uuid')
+  hotel_id: string;
 
   @Column('varchar')
   type: string;
