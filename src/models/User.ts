@@ -5,7 +5,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+
+import Hotel from './Hotel';
 
 @Entity('users')
 class User {
@@ -16,6 +19,9 @@ class User {
   name: string;
 
   @Column('varchar')
+  lastname: string;
+
+  @Column('varchar')
   email: string;
 
   @Column('varchar')
@@ -23,6 +29,18 @@ class User {
 
   @Column('varchar')
   avatar: string;
+
+  @Column('varchar')
+  phone: string;
+
+  @Column('boolean')
+  admin: boolean;
+
+  @OneToMany(() => Hotel, hotel => hotel.admin)
+  hotels!: Hotel[];
+
+  @Column('boolean')
+  enabled: boolean;
 
   @CreateDateColumn()
   created_at: Date;
