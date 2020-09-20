@@ -20,7 +20,7 @@ hotelsRouter.post('/', ensureAuthenticated, async (request, response) => {
 
   const createHotel = new CreateHotelService();
 
-  const user = await createHotel.execute({
+  const hotel = await createHotel.execute({
     user_id: request.user.id,
     name,
     stars,
@@ -32,7 +32,7 @@ hotelsRouter.post('/', ensureAuthenticated, async (request, response) => {
     phone,
   });
 
-  return response.status(201).json(user);
+  return response.status(201).json(hotel);
 });
 
 export default hotelsRouter;

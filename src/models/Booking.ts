@@ -19,21 +19,21 @@ class Booking {
   id: string;
 
   @OneToOne(() => Hotel)
-  @JoinColumn()
+  @JoinColumn({ name: 'hotel_id' })
   hotel: Hotel;
 
   @Column('uuid')
   hotel_id: string;
 
   @OneToOne(() => User)
-  @JoinColumn()
+  @JoinColumn({ name: 'user_id' })
   user: User;
 
   @Column('uuid')
   user_id: string;
 
   @OneToOne(() => Room)
-  @JoinColumn()
+  @JoinColumn({ name: 'room_id' })
   Room: Room;
 
   @Column('uuid')
@@ -46,7 +46,7 @@ class Booking {
   check_in: Date;
 
   @Column('timestamp with time zone')
-  check_out: string;
+  check_out: Date;
 
   @CreateDateColumn()
   created_at: Date;

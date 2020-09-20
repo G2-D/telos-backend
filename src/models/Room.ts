@@ -6,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 
 import Hotel from './Hotel';
@@ -18,8 +19,9 @@ class Rooms {
   @Column('uuid')
   hotel_id: string;
 
-  @ManyToOne(() => Hotel, hotel => hotel.rooms)
-  hotel!: Hotel;
+  @ManyToOne(() => Hotel)
+  @JoinColumn({ name: 'hotel_id' })
+  hotel: Hotel;
 
   @Column('varchar')
   type: string;
