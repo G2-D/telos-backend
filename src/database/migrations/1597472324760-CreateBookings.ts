@@ -8,32 +8,35 @@ export default class CreateBookings1597472324758 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'int',
-            isPrimary: true
-		  },
-		  {
+            type: 'uuid',
+            isPrimary: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
+          },
+          {
             name: 'hotel_id',
-            type: 'int',
-		  },
-		  {
+            type: 'uuid',
+          },
+          {
             name: 'user_id',
-            type: 'int',
-		  },
-		  {
+            type: 'uuid',
+          },
+          {
             name: 'room_id',
-            type: 'int',
-		  },
+            type: 'uuid',
+          },
           {
             name: 'status',
-            type: 'bit',
-		  },
-		  {
+            type: 'boolean',
+            default: true,
+          },
+          {
             name: 'check_in',
-            type: 'datetime'
-		  },
-		  {
+            type: 'timestamp with time zone',
+          },
+          {
             name: 'check_out',
-            type: 'datetime'
+            type: 'timestamp with time zone',
           },
           {
             name: 'created_at',

@@ -1,42 +1,58 @@
 /* eslint-disable camelcase */
 import {
-	Entity,
-	Column,
-	PrimaryColumn,
-	CreateDateColumn,
-	UpdateDateColumn,
-  } from 'typeorm';
-  
-  @Entity('bookings')
-  class Booking {
-  
-	@PrimaryColumn()
-	id: number;
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 
-	@Column('int')
-	hotel_id: number;
+import Hotel from './Hotel';
+import User from './User';
+import Room from './Room';
 
-	@Column('int')
-	user_id: number;
+@Entity('bookings')
+class Booking {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-	@Column('int')
-	room_id: number;
-  
-	@Column('bit')
-	status: boolean;
-  
-	@Column('datetime')
-	check_in: Date;
-  
-	@Column('datetime')
-	check_out: string;
-  
-	@CreateDateColumn()
-	created_at: Date;
-  
-	@UpdateDateColumn()
-	updated_at: Date;
-  }
-  
-  export default Booking;
-  
+  @OneToOne(() => Hotel)
+  @JoinColumn({ name: 'hotel_id' })
+  hotel: Hotel;
+
+  @Column('uuid')
+  hotel_id: string;
+
+  @OneToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
+
+  @Column('uuid')
+  user_id: string;
+
+  @OneToOne(() => Room)
+  @JoinColumn({ name: 'room_id' })
+  Room: Room;
+
+  @Column('uuid')
+  room_id: string;
+
+  @Column('boolean')
+  status: boolean;
+
+  @Column('timestamp with time zone')
+  check_in: Date;
+
+  @Column('timestamp with time zone')
+  check_out: Date;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+}
+
+export default Booking;

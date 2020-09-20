@@ -7,12 +7,20 @@ import User from '../models/User';
 
 interface Request {
   name: string;
+  lastname: string;
   email: string;
   password: string;
+  phone: string;
 }
 
 class CreateUserService {
-  public async execute({ name, email, password }: Request): Promise<User> {
+  public async execute({
+    name,
+    lastname,
+    email,
+    password,
+    phone,
+  }: Request): Promise<User> {
     const usersRepository = getRepository(User);
 
     const checkUserExists = await usersRepository.findOne({
@@ -27,8 +35,10 @@ class CreateUserService {
 
     const user = usersRepository.create({
       name,
+      lastname,
       email,
       password: hashedPassword,
+      phone,
     });
 
     await usersRepository.save(user);

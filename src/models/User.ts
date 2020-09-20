@@ -2,16 +2,18 @@
 import {
   Entity,
   Column,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+
+import Hotel from './Hotel';
 
 @Entity('users')
 class User {
-
-  @PrimaryColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column('varchar')
   name: string;
@@ -31,10 +33,13 @@ class User {
   @Column('varchar')
   phone: string;
 
-  @Column('bit')
+  @Column('boolean')
   admin: boolean;
 
-  @Column('bit')
+  @OneToMany(() => Hotel, hotel => hotel.admin)
+  hotels!: Hotel[];
+
+  @Column('boolean')
   enabled: boolean;
 
   @CreateDateColumn()

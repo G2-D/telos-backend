@@ -1,57 +1,68 @@
 /* eslint-disable camelcase */
 import {
-	Entity,
-	Column,
-	PrimaryColumn,
-	CreateDateColumn,
-	UpdateDateColumn,
-  } from 'typeorm';
-  
-  @Entity('hotels')
-  class Hotel {
-  
-	@PrimaryColumn()
-	id: number;
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 
-	@Column('int')
-	user_id: number;
-  
-	@Column('varchar')
-	name: string;
-  
-	@Column('int')
-	stars: number;
-  
-	@Column('text')
-	description: string;
-  
-	@Column('varchar')
-	address: string;
-  
-	@Column('varchar')
-	city: string;
-  
-	@Column('varchar')
-	state: string;
+import User from './User';
+import Room from './Room';
 
-	@Column('int')
-	zipcode: number;
+@Entity('hotels')
+class Hotel {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-	@Column('varchar')
-	phone: string;
-  
-	@Column('bit')
-	coffe_free: boolean;
-  
-	@Column('varchar')
-	image_url: boolean;
-  
-	@CreateDateColumn()
-	created_at: Date;
-  
-	@UpdateDateColumn()
-	updated_at: Date;
-  }
-  
-  export default Hotel;
-  
+  @Column('uuid')
+  user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  admin: User;
+
+  @OneToMany(() => Room, room => room.hotel)
+  rooms!: Room[];
+
+  @Column('varchar')
+  name: string;
+
+  @Column('int')
+  stars: number;
+
+  @Column('text')
+  description: string;
+
+  @Column('varchar')
+  address: string;
+
+  @Column('varchar')
+  city: string;
+
+  @Column('varchar')
+  state: string;
+
+  @Column('int')
+  zipcode: number;
+
+  @Column('varchar')
+  phone: string;
+
+  @Column('boolean')
+  coffe_free: boolean;
+
+  @Column('varchar')
+  image_url: boolean;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+}
+
+export default Hotel;
